@@ -14,7 +14,7 @@ AVAILABLE COMMANDS:
   - INPUT:
     Expecting a Json string "{"name": "<some_name>"}" in the request-body, starts a new game.
   - OUTPUT:
-    A Json string formated as below:
+    A Json string formated as such:
       "{"GameId": "<some_game_id>",
         "Message": "Welcome <some_name>.
                     What will be your move: Rock, Paper or Scissors?"}".
@@ -28,7 +28,7 @@ AVAILABLE COMMANDS:
   - INPUT:
     None.
   - OUTPUT:
-    A Json string formatted as below:
+    A Json string formatted as such:
     "{"ID": "<some_game_id>",
       "Information": "<some_information_message>",
       "Player1": {"Name": "<some_name_1>",
