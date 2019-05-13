@@ -13,7 +13,7 @@ ______________
 - POST api/games
   - INPUT:
 
-      Expecting a Json string `{"name": "<some_name>"}` in the request-body, starts a new game.
+      Expecting a Json string `{"name": "<some_name>"}` in the request-body.
   - OUTPUT:
 
       A Json string formated as below:
@@ -25,7 +25,8 @@ ______________
     If any error occur, a message describing the error is sent to the client.
   - EFFECT:
 
-    The first player is then created with the given name and is invited to make their move (see below).
+    - Starts a new game.
+    - The first player is then created with the given name and is invited to make their move (see below).
   - ERRORS:
 
     An error occurs if the given name is missing or blank.
@@ -47,6 +48,7 @@ ______________
       }
       ```
   - EFFECT:
+
     At any time of the game, gives the state of the game, which can be:
     - Waiting for player 1 "..." to play;
     - Waiting for player 2 to join the game;
