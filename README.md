@@ -2,7 +2,6 @@
 Rock, Paper and Scissors game handled by a REST web API developed in C#
 
 LAUNCHING SERVER:
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
 - Download/Clone the project,
 - Open the solution with Visual Studio 2017 or later version,
 - Restore NuGet packages if needed,
@@ -11,7 +10,6 @@ LAUNCHING SERVER:
 IIS Express is by default linked to Microsoft Edge but can easily be modified according to your preferences.
 
 AVAILABLE COMMANDS:
-¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
   ______________
 - POST api/games
   ¯¯¯¯¯¯¯¯¯¯¯¯¯¯
