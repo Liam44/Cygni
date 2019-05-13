@@ -87,27 +87,27 @@ AVAILABLE COMMANDS:
 ______________
 ARCHITECTURE:
   The solution includes two projects:
-    - The code source project which contains:
-      - Controllers:
-        - HomeController  => allows the default blank page to be displayed
-        - GamesController => manages all the commands as described above
-      - Exceptions:
-        - PlayerUndefinedException  => User defined exception thrown in case the player 1 is undefined, which should never happen
-      - Models:
-        - ErrorViewModel  => viewmodel created by default
-        - FilteredGame    => allows filtered information about a game session to be sent to the client by the "GET" command
-                             also contains a class named FilteredPlayer which allows to send filtered information about a player to the client
-        - Game            => allows all information relative to a game session to be stored
-        - JoinFromBody    => allows the GamesController to read information sent to the server via the "JOIN" command
-        - Move            => enumarate the possible moves
-        - MoveFromBody    => allows the GamesController to read information sent to the server via the "MOVE" command
-        - Player          => manages all information relative to the players
-        - PostFromBody    => allows the GamesController to read information sent to the server via the "POST" command
-    - The tests project which contains:
-      - Controllers (38 tests):
-        - GamesControllerTest => tests relative to all public functions declared in the controller
-      - Models (25 tests):
-        - FilteredGameTest    => tests relative to the FilterGame class
-        - FilteredPlayerTest  => tests relative to the FilterPlayer class
-        - GameTest            => tests relative to the Game class
-        - PlayerTest          => tests relative to the Player class
+  - The code source project which contains:
+    - Controllers:
+      - HomeController  => allows the default blank page to be displayed
+      - GamesController => manages all the commands as described above
+    - Exceptions:
+      - PlayerUndefinedException  => User defined exception thrown in case the player 1 is undefined, which should never happen
+    - Models:
+      - ErrorViewModel  => viewmodel created by default
+      - FilteredGame    => allows filtered information about a game session to be sent to the client by the "GET" command
+                           also contains a class named FilteredPlayer which allows to send filtered information about a player to the client
+      - Game            => allows all information relative to a game session to be stored
+      - JoinFromBody    => allows the GamesController to read information sent to the server via the "JOIN" command
+      - Move            => enumarate the possible moves
+      - MoveFromBody    => allows the GamesController to read information sent to the server via the "MOVE" command
+      - Player          => manages all information relative to the players
+      - PostFromBody    => allows the GamesController to read information sent to the server via the "POST" command
+  - The tests project which contains:
+    - Controllers (38 tests):
+      - GamesControllerTest => tests relative to all public functions declared in the controller
+    - Models (25 tests):
+      - FilteredGameTest    => tests relative to the FilterGame class
+      - FilteredPlayerTest  => tests relative to the FilterPlayer class
+      - GameTest            => tests relative to the Game class
+      - PlayerTest          => tests relative to the Player class
