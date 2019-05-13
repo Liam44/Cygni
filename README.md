@@ -12,9 +12,11 @@ ______________
 **AVAILABLE COMMANDS**:
 - POST api/games
   - INPUT:
-    Expecting a Json string `{"name": "<some_name>"}` in the request-body, starts a new game.
+
+      Expecting a Json string `{"name": "<some_name>"}` in the request-body, starts a new game.
   - OUTPUT:
-    A Json string formated as below:
+
+      A Json string formated as below:
       ```
       {"GameId": "<some_game_id>",
        "Message": "Welcome <some_name>.
@@ -22,14 +24,18 @@ ______________
       ```
     If any error occur, a message describing the error is sent to the client.
   - EFFECT:
+
     The first player is then created with the given name and is invited to make their move (see below).
   - ERRORS:
+
     An error occurs if the given name is missing or blank.
   __________________
 - GET api/games/{id}
   - INPUT:
+
     None.
   - OUTPUT:
+
     A Json string formatted as below:
       ```
       {"ID": "<some_game_id>",
@@ -40,25 +46,29 @@ ______________
                    "Move": "<some_move_2>"}
       }
       ```
-
-  At any time of the game, gives the state of the game, which can be:
+  - EFFECT:
+    At any time of the game, gives the state of the game, which can be:
     - Waiting for player 1 "..." to play;
     - Waiting for player 2 to join the game;
     - Waiting for player 2 "..." to play;
     - The players have played a drawn game;
     - "..." wins the game.
 
-  Note that:
+    Note that:
     - the information relative to the second player are left blank until the second player has actually joined the game;
     - the respective moves of both players are only shown when the game is over.
-  ERRORS:
+  - ERRORS:
+
     None.
   ________________________
 - POST api/games/{id}/join
   - INPUT:
+
     Expecting a Json string `{"name": "<some_name>"}` in the request-body, allows a second player to join the game.
+
       WARNING: the second player's name must be different from the first player's, and the entry is case unsensitive.
   - OUTPUT:
+
     A Json string formated as below:
       ```
       {"GameId": "<some_game_id>",
@@ -66,8 +76,10 @@ ______________
                    What will be your move: Rock, Paper or Scissors?"}
       ```
   - EFFECT:
+
     The second player is then created with the given name and is invited to make their move (see below).
   - ERRORS:
+
     An error occurs:
       - if the given name is missing or blank;
       - if a player with the same name has already joined the game;
@@ -75,17 +87,23 @@ ______________
   ________________________
 - POST api/games/{id}/move
   - INPUT:
+
     Expecting a Json string `{"name": "<players_name>", "move": "<some_move>"}` in the request-body, allows one of the players to make a move.
+
     The only possible moves are:
-      Rock;
-      Paper;
-      Scissors.
+    - Rock;
+    - Paper;
+    - Scissors.
+
     Note that the entries (both name and move) are case unsensitive.
   - OUTPUT:
+
     Error message if any.
   - EFFECT:
+
     Registers the player's move.
   - ERRORS.
+
     An error occurs:
       - if the given player's name is missing, blank or isn't defined in the game session;
       - if the given move is missing, blank or is not recognized;
