@@ -8,29 +8,26 @@ LAUNCHING SERVER:
 - Build the solution and execute the project.
 
 IIS Express is by default linked to Microsoft Edge but can easily be modified according to your preferences.
-
+______________
 AVAILABLE COMMANDS:
-  ______________
 - POST api/games
-  ¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-  INPUT:
+  - INPUT:
     Expecting a Json string "{"name": "<some_name>"}" in the request-body, starts a new game.
-  OUTPUT:
+  - OUTPUT:
     A Json string formated as below:
       "{"GameId": "<some_game_id>",
         "Message": "Welcome <some_name>.
                     What will be your move: Rock, Paper or Scissors?"}".
     If any error occur, a message describing the error is sent to the client.
-  EFFECT:
+  - EFFECT:
     The first player is then created with the given name and is invited to make their move (see below).
-  ERRORS:
+  - ERRORS:
     An error occurs if the given name is missing or blank.
   __________________
 - GET api/games/{id}
-  ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-  INPUT:
+  - INPUT:
     None.
-  OUTPUT:
+  - OUTPUT:
     A Json string formatted as below:
     "{"ID": "<some_game_id>",
       "Information": "<some_information_message>",
@@ -54,45 +51,42 @@ AVAILABLE COMMANDS:
     None.
   ________________________
 - POST api/games/{id}/join
-  ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-  INPUT:
+  - INPUT:
     Expecting a Json string "{"name": "<some_name>"}" in the request-body, allows a second player to join the game.
       WARNING: the second player's name must be different from the first player's, and the entry is case unsensitive.
-  OUTPUT:
+  - OUTPUT:
     A Json string formated as below:
       "{"GameId": "<some_game_id>",
         "Message": "Welcome <some_name>.
                     What will be your move: Rock, Paper or Scissors?"}".
-  EFFECT:
+  - EFFECT:
     The second player is then created with the given name and is invited to make their move (see below).
-  ERRORS:
+  - ERRORS:
     An error occurs:
       - if the given name is missing or blank;
       - if a player with the same name has already joined the game;
       - if more than two players are created.
   ________________________
 - POST api/games/{id}/move
-  ¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯¯
-  INPUT:
+  - INPUT:
     Expecting a Json string "{"name": "<players_name>", "move": "<some_move>"}" in the request-body, allows one of the players to make a move.
     The only possible moves are:
       Rock;
       Paper;
       Scissors.
     Note that the entries (both name and move) are case unsensitive.
-  OUTPUT:
+  - OUTPUT:
     Error message if any.
-  EFFECT:
+  - EFFECT:
     Registers the player's move.
-  ERRORS.
+  - ERRORS.
     An error occurs:
       - if the given player's name is missing, blank or isn't defined in the game session;
       - if the given move is missing, blank or is not recognized;
       - if a player tries to play more than once during the same game session.
-
+______________
 ARCHITECTURE:
-¯¯¯¯¯¯¯¯¯¯¯¯¯
-The solution includes two projects:
+  The solution includes two projects:
     - The code source project which contains:
       Controllers:
         HomeController  => allows the default blank page to be displayed
