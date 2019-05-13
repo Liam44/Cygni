@@ -38,15 +38,15 @@ AVAILABLE COMMANDS:
      }"
 
   At any time of the game, gives the state of the game, which can be:
-    => Waiting for player 1 "..." to play;
-    => Waiting for player 2 to join the game;
-    => Waiting for player 2 "..." to play;
-    => The players have played a drawn game;
-    => "..." wins the game.
+    - Waiting for player 1 "..." to play;
+    - Waiting for player 2 to join the game;
+    - Waiting for player 2 "..." to play;
+    - The players have played a drawn game;
+    - "..." wins the game.
 
   Note that:
-    => the information relative to the second player are left blank until the second player has actually joined the game;
-    => the respective moves of both players are only shown when the game is over.
+    - the information relative to the second player are left blank until the second player has actually joined the game;
+    - the respective moves of both players are only shown when the game is over.
   ERRORS:
     None.
   ________________________
@@ -88,26 +88,26 @@ ______________
 ARCHITECTURE:
   The solution includes two projects:
     - The code source project which contains:
-      Controllers:
-        HomeController  => allows the default blank page to be displayed
-        GamesController => manages all the commands as described above
-      Exceptions:
-        PlayerUndefinedException  => User defined exception thrown in case the player 1 is undefined, which should never happen
-      Models:
-        ErrorViewModel  => viewmodel created by default
-        FilteredGame    => allows filtered information about a game session to be sent to the client by the "GET" command
-                           also contains a class named FilteredPlayer which allows to send filtered information about a player to the client
-        Game            => allows all information relative to a game session to be stored
-        JoinFromBody    => allows the GamesController to read information sent to the server via the "JOIN" command
-        Move            => enumarate the possible moves
-        MoveFromBody    => allows the GamesController to read information sent to the server via the "MOVE" command
-        Player          => manages all information relative to the players
-        PostFromBody    => allows the GamesController to read information sent to the server via the "POST" command
+      - Controllers:
+        - HomeController  => allows the default blank page to be displayed
+        - GamesController => manages all the commands as described above
+      - Exceptions:
+        - PlayerUndefinedException  => User defined exception thrown in case the player 1 is undefined, which should never happen
+      - Models:
+        - ErrorViewModel  => viewmodel created by default
+        - FilteredGame    => allows filtered information about a game session to be sent to the client by the "GET" command
+                             also contains a class named FilteredPlayer which allows to send filtered information about a player to the client
+        - Game            => allows all information relative to a game session to be stored
+        - JoinFromBody    => allows the GamesController to read information sent to the server via the "JOIN" command
+        - Move            => enumarate the possible moves
+        - MoveFromBody    => allows the GamesController to read information sent to the server via the "MOVE" command
+        - Player          => manages all information relative to the players
+        - PostFromBody    => allows the GamesController to read information sent to the server via the "POST" command
     - The tests project which contains:
-      Controllers (38 tests):
-        GamesControllerTest => tests relative to all public functions declared in the controller
-      Models (25 tests):
-        FilteredGameTest    => tests relative to the FilterGame class
-        FilteredPlayerTest  => tests relative to the FilterPlayer class
-        GameTest            => tests relative to the Game class
-        PlayerTest          => tests relative to the Player class
+      - Controllers (38 tests):
+        - GamesControllerTest => tests relative to all public functions declared in the controller
+      - Models (25 tests):
+        - FilteredGameTest    => tests relative to the FilterGame class
+        - FilteredPlayerTest  => tests relative to the FilterPlayer class
+        - GameTest            => tests relative to the Game class
+        - PlayerTest          => tests relative to the Player class
