@@ -61,7 +61,7 @@ ______________
     - the respective moves of both players are only shown when the game is over.
   - ERRORS:
 
-    None.
+    An error occurs if for any reason, Player 1 is undefined.
   ________________________
 - POST api/games/{id}/join
   - INPUT:
@@ -83,6 +83,7 @@ ______________
   - ERRORS:
 
     An error occurs:
+      - if for any reason Player 1 is undefined;
       - if the given name is missing or blank;
       - if a player with the same name has already joined the game;
       - if more than two players are created.
@@ -107,6 +108,7 @@ ______________
   - ERRORS.
 
     An error occurs:
+      - if for any reason Player is undefined;
       - if the given player's name is missing, blank or isn't defined in the game session;
       - if the given move is missing, blank or is not recognized;
       - if a player tries to play more than once during the same game session.
@@ -132,7 +134,7 @@ ______________
   - The tests project which contains:
     - Controllers (38 tests):
       - GamesControllerTest => tests relative to all public functions declared in the controller
-    - Models (25 tests):
+    - Models (27 tests):
       - FilteredGameTest    => tests relative to the FilterGame class
       - FilteredPlayerTest  => tests relative to the FilterPlayer class
       - GameTest            => tests relative to the Game class
