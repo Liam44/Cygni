@@ -29,7 +29,10 @@ ______________
     - The first player is then created with the given name and is invited to make their move (see below).
   - ERRORS:
 
-    An error occurs if the given name is missing or blank.
+    An error occurs:
+    - if the Json string is missing from the request-body;
+    - if the given name is missing or blank;
+    - if for any reason Player 1 is undefined after the new game session has been created.
   __________________
 - GET api/games/{id}
   - INPUT:
@@ -83,10 +86,11 @@ ______________
   - ERRORS:
 
     An error occurs:
-      - if for any reason Player 1 is undefined;
-      - if the given name is missing or blank;
-      - if a player with the same name has already joined the game;
-      - if more than two players are created.
+    - if for any reason Player 1 is undefined;
+    - if the Json string is missing from the request-body;
+    - if the given name is missing or blank;
+    - if a player with the same name has already joined the game;
+    - if more than two players are created.
   ________________________
 - POST api/games/{id}/move
   - INPUT:
@@ -108,10 +112,11 @@ ______________
   - ERRORS.
 
     An error occurs:
-      - if for any reason Player is undefined;
-      - if the given player's name is missing, blank or isn't defined in the game session;
-      - if the given move is missing, blank or is not recognized;
-      - if a player tries to play more than once during the same game session.
+    - if for any reason Player is undefined;
+    - if the Json string is missing from the request-body;
+    - if the given player's name is missing, blank or isn't defined in the game session;
+    - if the given move is missing, blank or is not recognized;
+    - if a player tries to play more than once during the same game session.
 ______________
 **ARCHITECTURE**:
   The solution includes two projects:
