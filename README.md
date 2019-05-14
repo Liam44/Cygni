@@ -90,7 +90,7 @@ ______________
     - if the Json string is missing from the request-body;
     - if the given name is missing or blank;
     - if a player with the same name has already joined the game;
-    - if more than two players are created.
+    - if more than two players try to join the game.
   ________________________
 - POST api/games/{id}/move
   - INPUT:
