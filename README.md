@@ -112,7 +112,7 @@ ______________
   - ERRORS.
 
     An error occurs:
-    - if for any reason Player is undefined;
+    - if for any reason Player 1 is undefined;
     - if the Json string is missing from the request-body;
     - if the given player's name is missing, blank or isn't defined in the game session;
     - if the given move is missing, blank or is not recognized;
