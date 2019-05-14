@@ -55,6 +55,13 @@ namespace RockPaperScissors.Controllers
 
             Games.Add(game.ID, game);
 
+            // Checks that everything went fine during the creation of the new game session
+            GameId gameId = new GameId(game.ID);
+            if (gameId.Game.IsVoid)
+            {
+                return Request.CreateResponse(gameId.StatusCode, gameId.Message);
+            }
+
             return Request.CreateResponse(HttpStatusCode.OK,
                                           new PlayerEnteredGame(game.ID, postFromBody.Name));
         }
@@ -252,6 +259,15 @@ namespace RockPaperScissors.Controllers
                 }
 
                 Game = Games[id];
+
+                if (Game.IsVoid)
+                {
+                    Game = null;
+                    StatusCode = HttpStatusCode.NotAcceptable;
+                    Message = $"Player 1 is undefined, making the game {id} void." +
+                              Environment.NewLine +
+                              "Please start a new game.";
+                }
             }
         }
     }

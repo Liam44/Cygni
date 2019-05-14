@@ -16,6 +16,15 @@ namespace RockPaperScissors.Models
             Player1 = new Player(player1Name);
         }
 
+        public bool IsVoid
+        {
+            get
+            {
+                return Player1 == null;
+            }
+            private set { }
+        }
+
         /// <summary>
         /// Filters the information to be shown, according to the game state
         /// </summary>
@@ -31,7 +40,7 @@ namespace RockPaperScissors.Models
             FilteredGame result = new FilteredGame(ID, Player1, Player2);
 
             // This case should never happen, but one never knows...
-            if (Player1 == null) { throw new PlayerUndefinedException(); }
+            if (IsVoid) { throw new PlayerUndefinedException(); }
 
             if (Player1.Move == Move.Unknown)
             {

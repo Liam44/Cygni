@@ -69,6 +69,38 @@ namespace RockPaperScissors.Tests.Models
 
         #endregion
 
+        #region IsVoid
+
+        [TestMethod]
+        public void GameIsNotVoid()
+        {
+            // Arrange
+            string playerName = "John";
+            Game game = new Game(playerName);
+
+            // Act
+            bool result = game.IsVoid;
+
+            // Arrange
+            Assert.IsFalse(result);
+        }
+
+        [TestMethod]
+        public void GameIsVoid()
+        {
+            // Arrange
+            string playerName = "John";
+            Game game = new Game(playerName) { Player1 = null };
+
+            // Act
+            bool result = game.IsVoid;
+
+            // Arrange
+            Assert.IsTrue(result);
+        }
+
+        #endregion
+
         #region Filter
 
         [TestMethod]
